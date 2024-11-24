@@ -590,8 +590,6 @@ input::placeholder {
     top: 24px;
     right: 24px;
     border-radius: 50%;
-    border-width: 1px;
-    border-color: rgba(0, 0, 0, 0.1);
 
     background-color: #e7e9fc;
 
@@ -601,20 +599,25 @@ input::placeholder {
     justify-content: center;
     align-items: center;
 
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0;
+    cursor: pointer;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .close-button-icon {
     fill: #2e2f42;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modal-button:hover {
+.modal-button:hover,
+.modal-button:focus {
     background-color: #404bbf;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
 }
 
-.modal-button:hover .close-button-icon {
+.modal-button:hover .close-button-icon,
+.modal-button:focus .close-button-icon {
     fill: #fff;
 }
 
@@ -631,7 +634,7 @@ input::placeholder {
 .modal-form {}
 
 .modal-form-field {
-    margin-bottom: 8px;
+    margin-bottom: 16px;
 }
 
 .modal-form-label {
@@ -639,9 +642,9 @@ input::placeholder {
     margin-bottom: 4px;
     font-weight: 400;
     font-size: 12px;
-    line-height: 1.16667;
     letter-spacing: 0.04em;
     color: #8e8f99;
+    line-height: 1.17;
 }
 
 .modal-form-wrapper {
@@ -651,6 +654,7 @@ input::placeholder {
 .modal-form-input {
     width: 100%;
     border: 1px solid rgba(46, 47, 66, 0.4);
+    background-color: transparent;
     border-radius: 4px;
     height: 40px;
     box-shadow: none;
@@ -673,6 +677,7 @@ input::placeholder {
     left: 16px;
     transform: translateY(-50%);
     pointer-events: none;
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-form-message {
@@ -683,9 +688,10 @@ input::placeholder {
     resize: none;
     outline: transparent;
     padding: 8px 16px;
+    background-color: transparent;
 
     font-size: 12px;
-    line-height: 1.16667;
+    line-height: 1.17;
     letter-spacing: 0.04em;
 
     transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -705,7 +711,8 @@ input::placeholder {
 
 input[type="checkbox"]:checked + .modal-form-agreement-text .modal-form-checkbox {
     background-color: #404bbf;
-    border: 1px solid #404bbf;
+    border: none;
+    fill: #F4F4FD;
 }
 
 input[type="checkbox"]:checked + .modal-form-agreement-text .modal-form-checkbox .modal-form-checkbox-icon {
@@ -715,7 +722,7 @@ input[type="checkbox"]:checked + .modal-form-agreement-text .modal-form-checkbox
 
 .modal-form-agreement-text {
     font-size: 12px;
-    line-height: 1.16667;
+    line-height: 1.17;
     letter-spacing: 0.04em;
     color: #8e8f99;
 }
@@ -725,12 +732,13 @@ input[type="checkbox"]:checked + .modal-form-agreement-text .modal-form-checkbox
     width: 16px;
     height: 16px;
     border-radius: 2px;
-    border: 1px solid rgba(46, 47, 66, 0.4);
     justify-content: center;
     align-items: center;
     margin-right: 8px;
     cursor: pointer;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(46, 47, 66, 0.4);
+    fill: transparent;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-form-checkbox-icon {
@@ -748,10 +756,14 @@ input[type="checkbox"]:checked + .modal-form-agreement-text .modal-form-checkbox
 .form-btn {
     border-radius: 4px;
     padding: 16px 32px;
-    width: 169px;
+    min-width: 169px;
     height: 56px;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
     background: #4d5ae5;
+
+    cursor: pointer;
+    border: none;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
     font-weight: 500;
     font-size: 16px;
@@ -762,4 +774,10 @@ input[type="checkbox"]:checked + .modal-form-agreement-text .modal-form-checkbox
 
     display: block;
     margin: 0 auto;
+}
+
+.form-btn:hover,
+ .form-btn:focus {
+    border: none;
+    background-color: #404bbf;
 }
