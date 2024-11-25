@@ -519,7 +519,6 @@ input::placeholder {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 16px;
 
     font-family: inherit;
     font-weight: 500;
@@ -528,8 +527,6 @@ input::placeholder {
     letter-spacing: 0.04em;
     text-align: center;
     color: #fff;
-    padding: 8px 0 8px 24px;
-    margin-right: 16px;
 }
 
 .button-icon {
